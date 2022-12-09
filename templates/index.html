@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="HostelDesk landing page">
+    <meta name="author" content="">
+    {% load static %}
+    <title>Home Page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static "Home page/vendors/themify-icons/css/themify-icons.css" %}">
+
+    <!-- Bootstrap + main styles -->
+	<link rel="stylesheet" href="{% static "Home page/css/dorang.css" %}">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="dark-theme">
+    
+    <!-- page navbar -->
+    <nav class="page-navbar" data-spy="affix" data-offset-top="10">
+        <ul class="nav-navbar container">
+            <li class="nav-item"><a href="{% url "HostelDesk:login" %}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{% url "HostelDesk:signup" %}" class="nav-link">Signup</a></li>
+        </ul>
+    </nav>
+    <!-- end of page navbar -->
+
+    <div class="theme-selector">
+        <a href="javascript:void(0)" class="spinner">
+            <i class="ti-paint-bucket"></i>
+        </a>
+        <div class="body">
+            <a href="javascript:void(0)" class="light"></a>
+            <a href="javascript:void(0)" class="dark"></a>
+        </div>
+    </div>  
+
+    <!-- page header -->
+    <header class="header">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1 class="header-title">HostelDesk</h1>
+            <p class="header-subtitle">
+            NITC Hostel and Mess Management System
+            </p>
+
+
+        </div>
+    </header>
+    <!-- end of page header -->
+
+
+    <!-- core  -->
+    <script src="{% static "Home page/vendors/jquery/jquery-3.4.1.js" %}"></script>
+    <script src="{% static "Home page/vendors/bootstrap/bootstrap.bundle.js" %}"></script>
+
+    <!-- bootstrap affix -->
+    <script src="{% static "Home page/vendors/bootstrap/bootstrap.affix.js" %}"></script>
+
+    <!-- js -->
+    <script src="{% static "Home page/js/dorang.js" %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <title>HostelDesk Login</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static "Login page/fonts/material-icon/css/material-design-iconic-font.min.css" %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static "Login page/css/style.css" %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- <h1>Sign up</h1> -->
+        <div class="container">
+            <div class="sign-up-content">
+                <form method="POST" class="signup-form">
+                    {% csrf_token %}
+                    <div class="remove-line">
+                    <a href="{% url "HostelDesk:index" %}" class="loginhere-link">
+                    <h2 class="form-title"><em>Hostel</em>Desk Login</h2>
+                    </a>
+                    </div>
+                    <div class="form-radio">
+                        <input type="radio" name="role" value="admin" id="newbie" checked="checked" />
+                        <label for="newbie">Admin</label>
+
+                        <input type="radio" name="role" value="student" id="average" />
+                        <label for="average">Student</label>
+
+                        <input type="radio" name="role" value="h_manager" id="master" />
+                        <label for="master">Hostel Manager</label>
+
+                        <input type="radio" name="role" value="m_manager" id="legend" />
+                        <label for="legend">Mess Manager</label>
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="name">Username</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+
+                    <div class="form-textbox">
+                        <label for="pass">Password</label>
+                        <input type="password" name="password" id="pass" />
+                    </div>
+
+                    <p></p>
+
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Login" />
+                    </div>
+                </form>
+                <div class="main-content">
+                    <p class="error" style="font-size:18px; color:rgb(211, 50, 50)" text-align="center" id="error">
+                        {{error}}
+                    </p>
+                </div>
+                
+                <p class="loginhere">
+                    Don't have an account ?<a href="{% url "HostelDesk:signup" %}" class="loginhere-link"> Signup</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static "Login page/vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "Login page/js/main.js" %}"></script>
+</body>
+</html>

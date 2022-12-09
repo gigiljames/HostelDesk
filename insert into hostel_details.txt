@@ -1,0 +1,12 @@
+INSERT INTO Hostel_Details values (1,"Hostel A",150);
+INSERT INTO Hostel_Details values (2,"Hostel B",150);
+INSERT INTO Hostel_Details values (3,"Hostel C",150);
+INSERT INTO Hostel_Details values (4,"Hostel D",150);
+INSERT INTO Hostel_Details values (5,"Hostel E",150);
+INSERT INTO Hostel_Details values (6,"Hostel F",150);
+INSERT INTO Hostel_Details values (7,"Hostel G",150);
+INSERT INTO Hostel_Details values (8,"Hostel PG 1",150);
+INSERT INTO Hostel_Details values (9,"Hostel PG 2",150);
+INSERT INTO Hostel_Details values (10,"MHB 2",900);
+INSERT INTO Hostel_Details values (11,"LH",150);
+INSERT INTO Hostel_Details values (12,"MLH",900);

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <title>HostelDesk Signup</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static "Signup page/fonts/material-icon/css/material-design-iconic-font.min.css" %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static "Signup page/css/style.css" %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- <h1>Sign up</h1> -->
+        <div class="container">
+            <div class="sign-up-content">
+                <form method="POST" class="signup-form">
+                    {% csrf_token %}
+                    <h2 class="form-title"><em>Hostel</em>Desk Signup</h2>
+                    <p class="error" style="font-size:18px; color:rgb(211, 50, 50)" text-align="center" id="error">
+                    {{error}}
+                    <!-- {{user_exists}} -->
+                    </p>
+                    <div class="form-textbox">
+                        <label for="name">Name</label>
+                        <input type="text" value = '{{name}}' name="name" id="round" />
+                    </div>
+
+                    <div id="rollgender" class="form-textbox">
+                        <div class="form-textbox1 rollgender1">
+                            <label for="rollno">Roll Number</label>
+                            <input type="text" value = '{{rollno}}' name="rollno" id="round" />
+                        </div>
+                        <div class="form-textbox1 rollgender2">
+                            <select class="sayooj" name="gender" >
+                                <option value="none" selected disabled hidden>Select Gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select><br/>
+                        </div>
+                        
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="pass">Password</label>
+                        <input type="password" name="pass1" id="round" />
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="pass">Re-enter Password</label>
+                        <input class="rp" type="password" name="pass2" id="round" />
+                    </div>
+                    <p class="error" style="font-size:18px; color:rgb(211, 50, 50)" text-align="center" id="error">
+                    {{pass_error}}
+                    </p>
+                    
+                    <div id = "round" class = 'form-textbox' >
+                        <select class="sayooj1" name="course" >
+                            <option value="none" selected disabled hidden>Select Course</option>
+                            <option value="1">UG 1st Year</option>
+                            <option value="2">UG 2nd Year</option>
+                            <option value="3">UG 3rd Year</option>
+                            <option value="4">UG 4th Year</option>
+                            <option value="5">PG 1st Year</option>
+                            <option value="6">PG 2nd Year</option>
+                        </select>
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="phno">Phone Number</label>
+                        <input type="text" value="{{phno}}" name="phno" id="round" />
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="email">Institute Email</label>
+                        <input type="email" value="{{email}}" name="email" id="round" />
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="pass">Name of Parent/Guardian</label>
+                        <input class="npg" value="{{pname}}" type="text" name="pname" id="round" />
+                    </div>
+
+                    <div id="round" class="form-textbox">
+                        <label for="pass">Phone number of Parent/Guardian</label>
+                        <input class="ppg" value="{{p_phno}}" type="text" name="p_phno" id="round" />
+                    </div>
+
+                    <p></p>
+
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Signup" />
+                    </div>
+                </form>
+
+                <p class="loginhere">
+                    Already have an account ?<a href="{% url "HostelDesk:login" %}" class="loginhere-link"> Login</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static "Signup page/vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "Signup page/js/main.js" %}"></script>
+</body>
+</html>

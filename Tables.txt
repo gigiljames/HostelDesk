@@ -1,0 +1,102 @@
+create table Login_Cred(
+    U_Id varchar(9) PRIMARY KEY,
+    Password varchar(30),
+    R_Id integer
+);
+
+create table Student_Details(
+    Name varchar(40),
+    Roll_No char(9) PRIMARY KEY,
+    Gender char(1),
+    Course varchar(100),
+    Ph_No bigint,
+    Email varchar(100),
+    P_Name varchar(40),
+    P_Ph_No bigint
+);
+
+create table Hostel_Details(
+    H_Id integer PRIMARY KEY,
+    H_Name varchar(30),
+    Free_Room integer
+);
+
+create table Room_Details(
+    H_Id integer,
+    Floor_Id integer,
+    Room_Id integer,
+    Status integer,
+    PRIMARY KEY (H_Id,Floor_Id,Room_Id),
+    foreign key (H_Id) references Hostel_Details(H_Id) on update cascade on delete cascade
+);
+
+create table Student_Allocation_H(
+    H_Id integer,
+    Floor_Id integer,
+    Room_Id integer,
+    Roll_No varchar(9) PRIMARY KEY,
+    foreign key (H_Id,Floor_Id,Room_Id) references Room_Details(H_Id,Floor_Id,Room_Id) on update cascade on delete cascade,
+    foreign key (Roll_No) references Student_Details(Roll_No) on update cascade on delete cascade
+);
+
+ALTER TABLE Room_Details 
+RENAME COLUMN H_Id1 TO H_Id;
+ALTER TABLE Student_Allocation_H 
+RENAME COLUMN H_Id2 TO H_Id;
+ALTER TABLE Student_Allocation_H 
+RENAME COLUMN Floor_Id1 to Floor_Id;
+ALTER TABLE Student_Allocation_H 
+RENAME COLUMN Room_Id1 to Room_Id;
+ALTER TABLE Student_Allocation_H 
+RENAME COLUMN Roll_No1 to Roll_No;
+
+create table Student_Allocation_H(
+    H_Id integer,
+    Floor_Id integer,
+    Room_Id integer,
+    Roll_No varchar(9),
+    foreign key (H_Id,Floor_Id,Room_Id) references Room_Details(H_Id,Floor_Id,Room_Id) on update cascade on delete cascade
+);
+
+create table Course_Details(
+	Course_Id integer PRIMARY KEY,
+	Course_Name varchar(50)
+);
+
+INSERT INTO Course_Details values (1,"UG 1st Year");
+INSERT INTO Course_Details values (2,"UG 2nd Year");
+INSERT INTO Course_Details values (3,"UG 3rd Year");
+INSERT INTO Course_Details values (4,"UG 4th Year");
+INSERT INTO Course_Details values (5,"PG 1st Year");
+INSERT INTO Course_Details values (6,"PG 2nd Year");
+
+ALTER TABLE Student_Details
+ADD FOREIGN KEY (Course_Id) REFERENCES Course_Details(Course_Id) on update cascade on delete cascade;
+
+create table Hostel_Manager( 
+    Hm_Id varchar(9) PRIMARY KEY, 
+    Name varchar(50), 
+    H_Id integer,
+    foreign key (H_Id) references Hostel_Details(H_Id) on update cascade on delete cascade
+);
+
+create table Mess_Details(
+    M_Id integer PRIMARY KEY,
+    M_Name varchar(30),
+    Allocated integer,
+    Capacity integer,
+    Accepted_Gender integer
+);
+
+create table Mess_Manager(
+    Mm_Id varchar(9) PRIMARY KEY,
+    Name varchar(40),
+    M_Id integer,
+    foreign key (M_Id) references Mess_Details(M_Id) on update cascade on delete cascade
+);
+
+create table Student_Allocation_M(
+    M_Id integer,
+    Roll_No varchar(9),
+    foreign key (M_Id) references Mess_Details(M_Id) on update cascade on delete cascade
+);

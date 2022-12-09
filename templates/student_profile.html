@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Student Module</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "Student Profile/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static "Student Profile/assets/css/fontawesome.css" %}">
+    <link rel="stylesheet" href="{% static "Student Profile/assets/css/templatemo-grad-school.css" %}">
+    <link rel="stylesheet" href="{% static "Student Profile/assets/css/owl.css" %}">
+    <link rel="stylesheet" href="{% static "Student Profile/assets/css/lightbox.css" %}">
+
+</head>
+<body>
+
+    <div class="main">
+
+    <!--header-->
+    <header class="main-header clearfix" role="header">
+      <div class="logo">
+        <a href="{% url "HostelDesk:student_module" %}"><em>Student</em> Module</a>
+      </div>
+      <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+      <nav id="menu" class="main-nav" role="navigation">
+        <ul class="main-menu">
+          <li><a href="{% url "HostelDesk:student_module" %}" rel="sponsored" class="external">Home</a></li>
+          <li class="has-submenu"><a href="#section2">Application Forms</a>
+            <ul class="sub-menu2">
+              <li><a href="{% url "HostelDesk:application_h" %}" rel="sponsored" class="external">hostel</a></li>
+              <li><a href="{% url "HostelDesk:application_m" %}" rel="sponsored" class="external">mess</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu"><a href="#section2">{{name}}</a>
+            <ul class="sub-menu3">
+              <li><a href="{% url "HostelDesk:student_profile" %}" rel="sponsored" class="external">Edit Profile</a></li>  
+              <li><a href="{% url "HostelDesk:change_password" %}" rel="sponsored" class="external">Change Password</a></li>
+              <li><a href="{% url "HostelDesk:index" %}" rel="sponsored" class="external">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="{% static "Student Profile/assets/images/header.mp4" %}" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+          <div class="caption">
+            <div class="form">
+              <div class="title"><em>{{name}}</em></div>
+                <p class="error" style="font-size:18px; color:rgb(211, 50, 50)" text-align="center" id="error">
+                  {{error}}
+                </p>
+                <div class="details">
+                  <div class="rollgender">
+                    <p id="roll_no">Roll Number: {{roll_no}}</p>
+                    <p id="gender">Gender: {{gender}}</p>
+                  </div>
+                  <p>Email: {{email}}</p>
+                  <div class="hostel-mess">
+                    <p id="hostel">Hostel: {{hostel}}</p>
+                    <p id="floor">Floor: {{floor}}</p>
+                    <p id="room">Room: {{room}}</p>
+                    <p id="mess">Mess: {{mess}}</p>
+                  </div>
+                </div>
+                <form method="POST" class="edit-form">
+                  {% csrf_token %}
+                  <div class="input-container ic3">
+                    <div class="input">
+                      <input type="text" class="input" name="name" id="name" value="{{name}}" />
+                      <div class = "cut cut-short"></div>
+                      <label for="name" class="placeholder">Name</label>
+                    </div>
+                  </div>
+                  <div class="input-container ic3">
+                    <select class="input drop-down" name="course" >
+                      <optgroup>
+                        <option value="{{course_id}}" selected hidden>{{course}}</option>
+                        <option value="1">UG 1st Year</option>
+                        <option value="2">UG 2nd Year</option>
+                        <option value="3">UG 3rd Year</option>
+                        <option value="4">UG 4th Year</option>
+                        <option value="5">PG 1st Year</option>
+                        <option value="6">PG 2nd Year</option>
+                      </optgroup>
+                    </select>
+                    <div class="cut cut-short"></div>
+                    <label for="course" class="placeholder" >Course</label>
+                  </div>
+                  <div class="input-container ic3">
+                    <div class="input">
+                      <input type="text" class="input" name="p_name" id="p_name" value="{{p_name}}" />
+                      <div class="cut cut-long"></div>
+                      <label for="p_name" class="placeholder">Name of parent/guardian</label>
+                    </div>
+                  </div>
+                  <div class="phone-numbers">
+                    <div class="input-container ic3" id="self-phone">
+                      <div class="input">
+                        <input type="text" class="input" name="ph_no" id="ph_no" value="{{ph_no}}" />
+                        <div class="cut cut-med"></div>
+                        <label for="ph_no" class ="placeholder">Phone number</label>
+                      </div>
+                    </div>
+                    <div class="input-container ic3">
+                      <div class="input">
+                        <input type="text" class="input" name="p_ph_no" id="p_ph_no" value="{{p_ph_no}}" />
+                        <div class="cut cut-longer"></div>
+                        <label for="p_ph_no" class="placeholder" id="p_ph_label">Phone number of parent/guardian</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-container">
+                      <input type="submit" name="submit" id="submit" class="submit" value="Update" />
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+    </div>
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static "Student Profile/vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "Student Profile/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+  <script src="{% static "Student Profile/assets/js/isotope.min.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/owl-carousel.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/lightbox.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/tabs.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/video.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/slick-slider.js" %}"></script>
+  <script src="{% static "Student Profile/assets/js/custom.js" %}"></script>
+  <script>
+      //according to loftblog tut
+      $('.nav li:first').addClass('active');
+
+      var showSection = function showSection(section, isAnimate) {
+        var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $('body, html').animate({
+            scrollTop: reqSectionPos },
+          800);
+        } else {
+          $('body, html').scrollTop(reqSectionPos);
+        }
+
+      };
+
+      var checkSection = function checkSection() {
+        $('.section').each(function () {
+          var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+            reqLink.closest('li').addClass('active').
+            siblings().removeClass('active');
+          }
+        });
+      };
+
+      $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
+        if($(e.target).hasClass('external')) {
+          return;
+        }
+        e.preventDefault();
+        $('#menu').removeClass('active');
+        showSection($(this).attr('href'), true);
+      });
+
+      $(window).scroll(function () {
+        checkSection();
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+INSERT INTO Mess_Details values (1,"Mess A",0,300,1);
+INSERT INTO Mess_Details values (2,"Mess B",0,300,1);
+INSERT INTO Mess_Details values (3,"Mess C",0,300,1);
+INSERT INTO Mess_Details values (4,"Mess D",0,300,1);
+INSERT INTO Mess_Details values (5,"Mess E",0,300,3);
+INSERT INTO Mess_Details values (6,"Mess F",0,300,3);
+INSERT INTO Mess_Details values (7,"Mess G",0,300,2);
+INSERT INTO Mess_Details values (8,"Mess PG 1",0,300,1);
+INSERT INTO Mess_Details values (9,"Mess PG 2",0,300,1);
+INSERT INTO Mess_Details values (10,"MHB 2 F1",0,300,3);
+INSERT INTO Mess_Details values (11,"MHB 2 F2",0,300,3);
+INSERT INTO Mess_Details values (12,"LH Mess",0,300,2);
+INSERT INTO Mess_Details values (13,"MLH Mess",0,300,2);
